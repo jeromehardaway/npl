@@ -35,7 +35,7 @@ Text classification also known as text tagging is the process of classifying tex
 
 */
 
-var classifier = new natural.BayesClassifier();
+const classifier = new natural.BayesClassifier();
 classifier.addDocument("i am long qqqq", "buy");
 classifier.addDocument("buy the q's", "buy");
 classifier.addDocument("short gold", "sell");
@@ -44,3 +44,19 @@ classifier.train();
 
 console.log(classifier.classify("i am short silver"));
 console.log(classifier.classify("i am long copper"));
+
+
+/*
+Sentiment analysis (also known as opinion mining or emotion AI) refers to the use of natural language processing, text analysis, computational linguistics, and biometrics to systematically identify, extract, quantify, and study affective states and subjective information. Sentiment analysis is widely applied to voice of the customer materials such as reviews and survey responses, online and social media, and healthcare materials for applications that range from marketing to customer service to clinical medicine.
+*/
+
+
+
+const Analyzer = natural.SentimentAnalyzer;
+const stemmer = natural.PorterStemmer;
+const analyzer = new Analyzer("English", stemmer, "afinn");
+
+// getSentiment expects an array of strings
+console.log(
+  analyzer.getSentiment(["I", "don't", "want", "to", "play", "with", "you"])
+);
