@@ -28,3 +28,19 @@ Hamming distance measures the distance between two strings of equal length by co
 console.log(natural.HammingDistance("karolin", "kathrin", false));
 console.log(natural.HammingDistance("karolin", "kerstin", false));
 console.log(natural.HammingDistance("short string", "longer string", false));
+
+
+/*
+Text classification also known as text tagging is the process of classifying text into organized groups. That is, if we have a new unknown statement, our processing system can decide which category it fits in the most based on its content.
+
+*/
+
+var classifier = new natural.BayesClassifier();
+classifier.addDocument("i am long qqqq", "buy");
+classifier.addDocument("buy the q's", "buy");
+classifier.addDocument("short gold", "sell");
+classifier.addDocument("sell gold", "sell");
+classifier.train();
+
+console.log(classifier.classify("i am short silver"));
+console.log(classifier.classify("i am long copper"));
