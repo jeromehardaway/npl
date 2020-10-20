@@ -60,3 +60,20 @@ const analyzer = new Analyzer("English", stemmer, "afinn");
 console.log(
   analyzer.getSentiment(["I", "don't", "want", "to", "play", "with", "you"])
 );
+
+
+/*
+Phonetic Matching
+Using natural, we can compare two words that are spelled differently but sound similar using phonetic matching.
+*/
+
+const metaphone = natural.Metaphone;
+const soundEx = natural.SoundEx;
+
+const wordA = 'phonetics';
+const wordB = 'fonetix';
+
+if (metaphone.compare(wordA, wordB))
+    console.log('They sound alike!');
+
+console.log(metaphone.process('phonetics'));
