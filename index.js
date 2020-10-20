@@ -77,3 +77,17 @@ if (metaphone.compare(wordA, wordB))
     console.log('They sound alike!');
 
 console.log(metaphone.process('phonetics'));
+
+
+/*
+Spell Check
+
+Users may make typographical errors when supplying input to a web application through a search bar or an input field. Natural has a probabilistic spellchecker that can suggest corrections for misspelled words using an array of tokens from a text corpus.
+
+*/
+
+const corpus = ['something', 'soothing'];
+const spellcheck = new natural.Spellcheck(corpus);
+
+console.log(spellcheck.getCorrections('soemthing', 1));
+console.log(spellcheck.getCorrections('soemthing', 2));
